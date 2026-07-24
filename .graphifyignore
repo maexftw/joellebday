@@ -1,0 +1,24 @@
+# Graphify soll das System verstehen, nicht Binärduplikate semantisch beschreiben.
+graphify-out/
+__pycache__/
+output/qa/
+output/qa-*/
+output/site-audit*/
+output/pdf/
+iCloud Fotos/
+iCloud Fotos/
+
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.webp
+*.WEBP
+*.svg
+*.SVG
+*.pdf
+*.PDF
+*.zip
+*.ZIP

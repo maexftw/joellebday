@@ -1,0 +1,57 @@
+{
+  "build_card.py": {
+    "mtime": 1784813780.988,
+    "ast_hash": "5747dd0e82e61aa1bb233375592015ce",
+    "semantic_hash": "5747dd0e82e61aa1bb233375592015ce"
+  },
+  "site/app.js": {
+    "mtime": 1784874957.6629584,
+    "ast_hash": "30ebc47896b2648a9921946cc2e7904b",
+    "semantic_hash": "30ebc47896b2648a9921946cc2e7904b"
+  },
+  "verify_site.mjs": {
+    "mtime": 1784876067.6623466,
+    "ast_hash": "81f4d380d4f27e330b15a4ea219649f9",
+    "semantic_hash": "81f4d380d4f27e330b15a4ea219649f9"
+  },
+  "PROJECT_HANDOFF.md": {
+    "mtime": 1784884105.0026782,
+    "ast_hash": "55a37c4946071a855567f4b3d96c815f",
+    "semantic_hash": "55a37c4946071a855567f4b3d96c815f"
+  },
+  "assets/lucide/LICENSE.txt": {
+    "mtime": 1784813398.0354638,
+    "ast_hash": "02bc955c1f722d4c484b65f22d9905ad",
+    "semantic_hash": "02bc955c1f722d4c484b65f22d9905ad"
+  },
+  "output/generated/PROMPTS.md": {
+    "mtime": 1784874957.6639578,
+    "ast_hash": "f3e1d07b945cc6e4f4a0158ff15370c1",
+    "semantic_hash": "f3e1d07b945cc6e4f4a0158ff15370c1"
+  },
+  "output/generated/new-wallpapers/PROMPTS.md": {
+    "mtime": 1784876748.9770935,
+    "ast_hash": "5bdc0f50a3cc7bf1c1d067e4c93c982d",
+    "semantic_hash": "5bdc0f50a3cc7bf1c1d067e4c93c982d"
+  },
+  "site/assets/icons/LICENSE.txt": {
+    "mtime": 1784813398.0354638,
+    "ast_hash": "02bc955c1f722d4c484b65f22d9905ad",
+    "semantic_hash": "02bc955c1f722d4c484b65f22d9905ad"
+  },
+  "site/index.html": {
+    "mtime": 1784877573.3999813,
+    "ast_hash": "ce7e376e45157c5172773cfacabf48bf",
+    "semantic_hash": "ce7e376e45157c5172773cfacabf48bf"
+  },
+  "site/wallpapers.html": {
+    "mtime": 1784876067.6613274,
+    "ast_hash": "b60217ce3b77eb28f6035edf841f0654",
+    "semantic_hash": "b60217ce3b77eb28f6035edf841f0654"
+  },
+  "README.md": {
+    "mtime": 1784884105.001678,
+    "ast_hash": "4e4e493d8333425a5b429a3317a32bc4",
+    "semantic_hash": "4e4e493d8333425a5b429a3317a32bc4"
+  }
+}

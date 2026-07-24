@@ -1743,6 +1743,12 @@ p {
   }
 }
 
+@media (max-width: 340px) and (max-height: 680px) {
+  .gift-ticket h2 {
+    font-size: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:not(.motion-forced) *,
   html:not(.motion-forced) *::before,

@@ -14,9 +14,12 @@ const [html, gallery, css, js] = await Promise.all([
 
 assert.equal((html.match(/<section class="slide /g) ?? []).length, 9);
 assert.match(html, /Jutta, Manny, Maxi und Benny\./);
-assert.doesNotMatch(html, /Einfach ihr zwei\./);
-assert.match(html, /Einfach alle vier\./);
-assert.match(html, /Jutta und Maxi kommen mit\./);
+assert.doesNotMatch(html, /Einfach ihr zwei\.|Einfach alle vier\.|Einfach mit Spaß\./);
+assert.match(html, /Auf zum Agility\./);
+assert.match(html, /Natürlich zu viert\./);
+assert.match(html, /Jutta und Maxi fahren mit\./);
+assert.match(html, /Ein Geldgeschenk als/);
+assert.doesNotMatch(html, /Ein Geldgeschenk für/);
 assert.match(html, /mila-road-skeptical\.webp/);
 assert.doesNotMatch(html, /id="slide-more-wallpapers"/);
 assert.equal((html.match(/href="wallpapers\.html"/g) ?? []).length, 1);

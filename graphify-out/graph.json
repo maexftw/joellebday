@@ -4,6 +4,32 @@
   "graph": {
     "hyperedges": [
       {
+        "id": "project_handoff_native_git_deployment_path",
+        "label": "Native Git deployment path",
+        "nodes": [
+          "project_handoff_github_repository_joellebday",
+          "project_handoff_main_branch",
+          "project_handoff_automatic_git_deployment",
+          "project_handoff_site_output_directory"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "PROJECT_HANDOFF.md"
+      },
+      {
+        "id": "project_handoff_dual_cloudflare_delivery",
+        "label": "Git deployment plus preserved Direct Upload production",
+        "nodes": [
+          "project_handoff_cloudflare_direct_upload_project",
+          "project_handoff_direct_upload_production_preservation"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "PROJECT_HANDOFF.md"
+      },
+      {
         "id": "project_handoff_digitale_geschenk_erfahrung",
         "label": "Digitale Geschenk-Erfahrung",
         "nodes": [
@@ -13,19 +39,6 @@
           "project_handoff_spassbudget"
         ],
         "relation": "form",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "PROJECT_HANDOFF.md"
-      },
-      {
-        "id": "project_handoff_statische_auslieferung",
-        "label": "Statische Auslieferung ohne Build-Schritt",
-        "nodes": [
-          "project_handoff_frameworkfreie_statische_website",
-          "project_handoff_cloudflare_pages_direct_upload",
-          "project_handoff_noindex_privatsphaere"
-        ],
-        "relation": "participate_in",
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
         "source_file": "PROJECT_HANDOFF.md"
@@ -39,7 +52,7 @@
       "source_file": "build_card.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "build_card.py",
       "id": "build_card"
@@ -50,7 +63,7 @@
       "source_file": "build_card.py",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "register_fonts()",
       "id": "build_card_register_fonts"
@@ -61,7 +74,7 @@
       "source_file": "build_card.py",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "prepare_photo()",
       "id": "build_card_prepare_photo"
@@ -72,7 +85,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "path",
       "id": "path"
@@ -83,7 +96,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "image",
       "id": "image"
@@ -94,7 +107,7 @@
       "source_file": "build_card.py",
       "source_location": "L105",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "draw_rounded_photo()",
       "id": "build_card_draw_rounded_photo"
@@ -105,7 +118,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "canvas",
       "id": "canvas"
@@ -116,7 +129,7 @@
       "source_file": "build_card.py",
       "source_location": "L135",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "draw_svg_icon()",
       "id": "build_card_draw_svg_icon"
@@ -127,7 +140,7 @@
       "source_file": "build_card.py",
       "source_location": "L168",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "draw_fold_ticks()",
       "id": "build_card_draw_fold_ticks"
@@ -138,7 +151,7 @@
       "source_file": "build_card.py",
       "source_location": "L178",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "draw_inside_top",
       "norm_label": "draw_paragraph()",
       "id": "build_card_draw_paragraph"
@@ -149,7 +162,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "draw_inside_top",
       "norm_label": "paragraphstyle",
       "id": "paragraphstyle"
@@ -160,7 +173,7 @@
       "source_file": "build_card.py",
       "source_location": "L193",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "draw_qr()",
       "id": "build_card_draw_qr"
@@ -171,7 +184,7 @@
       "source_file": "build_card.py",
       "source_location": "L208",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "draw_cover()",
       "id": "build_card_draw_cover"
@@ -182,7 +195,7 @@
       "source_file": "build_card.py",
       "source_location": "L235",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "draw_back_cover_upright()",
       "id": "build_card_draw_back_cover_upright"
@@ -193,7 +206,7 @@
       "source_file": "build_card.py",
       "source_location": "L261",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "draw_outer_page()",
       "id": "build_card_draw_outer_page"
@@ -204,7 +217,7 @@
       "source_file": "build_card.py",
       "source_location": "L274",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "draw_inside_top",
       "norm_label": "draw_speech_bubble()",
       "id": "build_card_draw_speech_bubble"
@@ -215,7 +228,7 @@
       "source_file": "build_card.py",
       "source_location": "L289",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "draw_inside_top",
       "norm_label": "draw_inside_top()",
       "id": "build_card_draw_inside_top"
@@ -226,7 +239,7 @@
       "source_file": "build_card.py",
       "source_location": "L372",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "draw_money_area()",
       "id": "build_card_draw_money_area"
@@ -237,7 +250,7 @@
       "source_file": "build_card.py",
       "source_location": "L418",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "Canvas",
       "norm_label": "draw_inside_bottom()",
       "id": "build_card_draw_inside_bottom"
@@ -248,7 +261,7 @@
       "source_file": "build_card.py",
       "source_location": "L487",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "draw_inside_page",
       "norm_label": "draw_inside_page()",
       "id": "build_card_draw_inside_page"
@@ -259,7 +272,7 @@
       "source_file": "build_card.py",
       "source_location": "L496",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "build_pdf()",
       "id": "build_card_build_pdf"
@@ -270,7 +283,7 @@
       "source_file": "build_card.py",
       "source_location": "L535",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "rounded_paste()",
       "id": "build_card_rounded_paste"
@@ -281,7 +294,7 @@
       "source_file": "build_card.py",
       "source_location": "L549",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "community_name": "build_card.py",
       "norm_label": "build_preview()",
       "id": "build_card_build_preview"
@@ -292,7 +305,7 @@
       "source_file": "site/app.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "app.js",
       "id": "site_app"
@@ -303,7 +316,7 @@
       "source_file": "site/app.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "slides",
       "id": "site_app_slides"
@@ -314,7 +327,7 @@
       "source_file": "site/app.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "prevbuttons",
       "id": "site_app_prevbuttons"
@@ -325,7 +338,7 @@
       "source_file": "site/app.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "nextbuttons",
       "id": "site_app_nextbuttons"
@@ -336,7 +349,7 @@
       "source_file": "site/app.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "progressnumber",
       "id": "site_app_progressnumber"
@@ -347,7 +360,7 @@
       "source_file": "site/app.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "progresstitle",
       "id": "site_app_progresstitle"
@@ -358,7 +371,7 @@
       "source_file": "site/app.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "progressbar",
       "id": "site_app_progressbar"
@@ -369,7 +382,7 @@
       "source_file": "site/app.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "status",
       "id": "site_app_status"
@@ -380,7 +393,7 @@
       "source_file": "site/app.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "deck",
       "id": "site_app_deck"
@@ -391,7 +404,7 @@
       "source_file": "site/app.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "prefersreducedmotion",
       "id": "site_app_prefersreducedmotion"
@@ -402,7 +415,7 @@
       "source_file": "site/app.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "resetviewportscroll()",
       "id": "site_app_resetviewportscroll"
@@ -413,7 +426,7 @@
       "source_file": "site/app.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "clamp()",
       "id": "site_app_clamp"
@@ -424,7 +437,7 @@
       "source_file": "site/app.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "showslide()",
       "id": "site_app_showslide"
@@ -435,7 +448,7 @@
       "source_file": "site/app.js",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "move()",
       "id": "site_app_move"
@@ -446,7 +459,7 @@
       "source_file": "site/app.js",
       "source_location": "L110",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "app.js",
       "norm_label": "initialslide",
       "id": "site_app_initialslide"
@@ -457,7 +470,7 @@
       "source_file": "verify_site.mjs",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 8,
       "community_name": "verify_site.mjs",
       "norm_label": "verify_site.mjs",
       "id": "verify_site"
@@ -468,7 +481,7 @@
       "source_file": "verify_site.mjs",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 7,
+      "community": 8,
       "community_name": "verify_site.mjs",
       "norm_label": "root",
       "id": "verify_site_root"
@@ -479,7 +492,7 @@
       "source_file": "verify_site.mjs",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 7,
+      "community": 8,
       "community_name": "verify_site.mjs",
       "norm_label": "site",
       "id": "verify_site_site"
@@ -490,7 +503,7 @@
       "source_file": "verify_site.mjs",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 7,
+      "community": 8,
       "community_name": "verify_site.mjs",
       "norm_label": "assets",
       "id": "verify_site_assets"
@@ -504,7 +517,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "lucide icons isc license",
       "community_name": "Lucide Icons ISC License",
       "id": "assets_lucide_license_isc_license"
@@ -602,7 +615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "produktive lucide icons isc license",
       "community_name": "Lucide Icons ISC License",
       "id": "site_assets_icons_license_isc_license"
@@ -812,7 +825,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "projekt-handoff: joelles digitale geburtstagskarte",
       "id": "project_handoff_project_handoff",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -826,7 +839,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "joelles digitale geburtstagskarte",
       "id": "project_handoff_digitale_geburtstagskarte",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -840,7 +853,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "spa\u00dfbudget fur gemeinsame agility-zeit",
       "id": "project_handoff_spassbudget",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -854,13 +867,13 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "gemeinsame freude im eigenen tempo",
       "id": "project_handoff_gemeinsame_freude_im_eigenen_tempo",
       "community_name": "Joelles digitale Geburtstagskarte"
     },
     {
-      "label": "Frameworkfreie statische Website",
+      "label": "Frameworkfreie statische Website ohne Build-Schritt",
       "file_type": "concept",
       "source_file": "PROJECT_HANDOFF.md",
       "source_location": null,
@@ -868,10 +881,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "frameworkfreie statische website",
+      "community": 3,
+      "norm_label": "frameworkfreie statische website ohne build-schritt",
       "id": "project_handoff_frameworkfreie_statische_website",
-      "community_name": "Joelles digitale Geburtstagskarte"
+      "community_name": "Automatisches GitHub-main-Deployment"
     },
     {
       "label": "Pr\u00e4sentation mit zehn Vollbildfolien",
@@ -882,7 +895,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "prasentation mit zehn vollbildfolien",
       "id": "project_handoff_vollbildfolien_praesentation",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -896,7 +909,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "wallpaper-galerie mit 15 karten",
       "id": "project_handoff_wallpaper_galerie",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -910,7 +923,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "bild- und wallpaper-workflow",
       "id": "project_handoff_wallpaper_workflow",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -924,7 +937,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "immutable asset-caching mit neuen dateinamen",
       "id": "project_handoff_immutable_asset_caching",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -938,13 +951,27 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "barrierefreiheitsgrundlagen",
       "id": "project_handoff_barrierefreiheitsgrundlagen",
       "community_name": "Joelles digitale Geburtstagskarte"
     },
     {
-      "label": "Cloudflare Pages Direct Upload",
+      "label": "GitHub-Repository maexftw/joellebday",
+      "file_type": "concept",
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "source_url": "https://github.com/maexftw/joellebday",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "github-repository maexftw/joellebday",
+      "id": "project_handoff_github_repository_joellebday",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "GitHub main Branch",
       "file_type": "concept",
       "source_file": "PROJECT_HANDOFF.md",
       "source_location": null,
@@ -952,10 +979,66 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "cloudflare pages direct upload",
-      "id": "project_handoff_cloudflare_pages_direct_upload",
-      "community_name": "Joelles digitale Geburtstagskarte"
+      "community": 3,
+      "norm_label": "github main branch",
+      "id": "project_handoff_main_branch",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Automatisches GitHub-main-Deployment",
+      "file_type": "concept",
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "automatisches github-main-deployment",
+      "id": "project_handoff_automatic_git_deployment",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Cloudflare-Ausgabeverzeichnis site",
+      "file_type": "concept",
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "cloudflare-ausgabeverzeichnis site",
+      "id": "project_handoff_site_output_directory",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Cloudflare Pages Direct-Upload-Projekt joelle-mila-geburtstag",
+      "file_type": "concept",
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "source_url": "https://joelle-mila-geburtstag.pages.dev/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "cloudflare pages direct-upload-projekt joelle-mila-geburtstag",
+      "id": "project_handoff_cloudflare_direct_upload_project",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Bestehende Direct-Upload-Produktion bleibt unangetastet",
+      "file_type": "rationale",
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "bestehende direct-upload-produktion bleibt unangetastet",
+      "id": "project_handoff_direct_upload_production_preservation",
+      "community_name": "Automatisches GitHub-main-Deployment"
     },
     {
       "label": "\u00d6ffentlich erreichbar, aber nicht f\u00fcr Suchmaschinen",
@@ -966,7 +1049,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "offentlich erreichbar, aber nicht fur suchmaschinen",
       "id": "project_handoff_noindex_privatsphaere",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -980,7 +1063,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "graphify als navigations- und ubergabeschicht",
       "id": "project_handoff_graphify_navigationsschicht",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -994,7 +1077,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "joelles digitale geburtstagskarte readme",
       "id": "readme_readme",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -1008,13 +1091,27 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "frameworkfreie statische geburtstagskarte",
       "id": "readme_digitale_geburtstagskarte",
       "community_name": "Joelles digitale Geburtstagskarte"
     },
     {
-      "label": "Cloudflare Pages Deployment",
+      "label": "Cloudflare Pages Projekt joellebday",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://joellebday.pages.dev/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "cloudflare pages projekt joellebday",
+      "id": "readme_cloudflare_git_project_joellebday",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Automatische Ver\u00f6ffentlichung von main",
       "file_type": "concept",
       "source_file": "README.md",
       "source_location": null,
@@ -1022,10 +1119,38 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "cloudflare pages deployment",
-      "id": "readme_cloudflare_pages",
-      "community_name": "Joelles digitale Geburtstagskarte"
+      "community": 3,
+      "norm_label": "automatische veroffentlichung von main",
+      "id": "readme_main_automatic_deployment",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Cloudflare-Ausgabeverzeichnis site",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "cloudflare-ausgabeverzeichnis site",
+      "id": "readme_site_output_directory",
+      "community_name": "Automatisches GitHub-main-Deployment"
+    },
+    {
+      "label": "Stabile Direct-Upload-Produktion joelle-mila-geburtstag",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": "https://joelle-mila-geburtstag.pages.dev/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "stabile direct-upload-produktion joelle-mila-geburtstag",
+      "id": "readme_direct_upload_production",
+      "community_name": "Automatisches GitHub-main-Deployment"
     },
     {
       "label": "\u00d6ffentlicher Webstand ohne private Originalartefakte",
@@ -1036,7 +1161,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 2,
       "norm_label": "offentlicher webstand ohne private originalartefakte",
       "id": "readme_repository_datenschutzumfang",
       "community_name": "Joelles digitale Geburtstagskarte"
@@ -2423,13 +2548,13 @@
       "target": "project_handoff_spassbudget"
     },
     {
-      "relation": "implements",
+      "relation": "shares_data_with",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_HANDOFF.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "project_handoff_cloudflare_pages_direct_upload",
+      "source": "project_handoff_site_output_directory",
       "target": "project_handoff_frameworkfreie_statische_website"
     },
     {
@@ -2463,24 +2588,104 @@
       "target": "project_handoff_wallpaper_workflow"
     },
     {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_github_repository_joellebday",
+      "target": "readme_cloudflare_git_project_joellebday"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_main_branch",
+      "target": "project_handoff_automatic_git_deployment"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_automatic_git_deployment",
+      "target": "project_handoff_site_output_directory"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_automatic_git_deployment",
+      "target": "readme_cloudflare_git_project_joellebday"
+    },
+    {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_cloudflare_pages",
-      "target": "project_handoff_cloudflare_pages_direct_upload"
+      "source": "readme_main_automatic_deployment",
+      "target": "project_handoff_automatic_git_deployment"
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_cloudflare_direct_upload_project",
+      "target": "project_handoff_site_output_directory"
+    },
+    {
+      "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.75,
+      "confidence_score": 0.95,
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_repository_datenschutzumfang",
-      "target": "project_handoff_noindex_privatsphaere"
+      "source": "readme_site_output_directory",
+      "target": "project_handoff_site_output_directory"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_direct_upload_production_preservation",
+      "target": "project_handoff_cloudflare_direct_upload_project"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_direct_upload_production",
+      "target": "project_handoff_cloudflare_direct_upload_project"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "project_handoff_direct_upload_production_preservation",
+      "target": "readme_cloudflare_git_project_joellebday"
     },
     {
       "relation": "references",
@@ -2493,16 +2698,6 @@
       "target": "readme_digitale_geburtstagskarte"
     },
     {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_cloudflare_pages",
-      "target": "readme_digitale_geburtstagskarte"
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2511,9 +2706,65 @@
       "weight": 1.0,
       "source": "readme_repository_datenschutzumfang",
       "target": "readme_digitale_geburtstagskarte"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_main_automatic_deployment",
+      "target": "readme_cloudflare_git_project_joellebday"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_main_automatic_deployment",
+      "target": "readme_site_output_directory"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_direct_upload_production",
+      "target": "readme_site_output_directory"
     }
   ],
   "hyperedges": [
+    {
+      "id": "project_handoff_native_git_deployment_path",
+      "label": "Native Git deployment path",
+      "nodes": [
+        "project_handoff_github_repository_joellebday",
+        "project_handoff_main_branch",
+        "project_handoff_automatic_git_deployment",
+        "project_handoff_site_output_directory"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md"
+    },
+    {
+      "id": "project_handoff_dual_cloudflare_delivery",
+      "label": "Git deployment plus preserved Direct Upload production",
+      "nodes": [
+        "project_handoff_cloudflare_direct_upload_project",
+        "project_handoff_direct_upload_production_preservation"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_HANDOFF.md"
+    },
     {
       "id": "project_handoff_digitale_geschenk_erfahrung",
       "label": "Digitale Geschenk-Erfahrung",
@@ -2527,19 +2778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_HANDOFF.md"
-    },
-    {
-      "id": "project_handoff_statische_auslieferung",
-      "label": "Statische Auslieferung ohne Build-Schritt",
-      "nodes": [
-        "project_handoff_frameworkfreie_statische_website",
-        "project_handoff_cloudflare_pages_direct_upload",
-        "project_handoff_noindex_privatsphaere"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PROJECT_HANDOFF.md"
     }
-  ]
+  ],
+  "built_at_commit": "f00d1e4b7cd306f8a7edc944221709e6ea910074"
 }

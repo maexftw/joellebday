@@ -12,6 +12,7 @@ aber absichtlich nicht für Suchmaschinen gedacht:
 - Wallpaper-Galerie: https://joelle-mila-geburtstag.pages.dev/wallpapers
 - GitHub-Repository: https://github.com/maexftw/joellebday
 - Cloudflare-Pages-Projekt: `joelle-mila-geburtstag`
+- Cloudflare-Git-Projekt: `joellebday`
 - Deploy-Root: `site/`
 - Es gibt bewusst keinen Build-Schritt.
 
@@ -171,6 +172,16 @@ Seite wird ohne Build direkt aus `site/` hochgeladen:
 npx --yes wrangler@4.114.0 whoami
 npx --yes wrangler@4.114.0 pages deploy site --project-name joelle-mila-geburtstag --branch main
 ```
+
+Zusätzlich ist das GitHub-Repository nativ mit dem Cloudflare-Pages-Projekt
+`joellebday` verbunden. Pushes auf `main` werden ohne Build-Befehl direkt aus
+dem Ausgabeverzeichnis `site` veröffentlicht:
+https://joellebday.pages.dev/
+
+Das zusätzliche Git-Projekt ist absichtlich nicht an die Stelle der
+bestehenden Direct-Upload-Produktion getreten. Cloudflare kann ein bestehendes
+Direct-Upload-Projekt nicht nachträglich auf native Git-Integration umstellen;
+die bisherige produktive URL bleibt dadurch unangetastet.
 
 Nach dem Deploy müssen mindestens geprüft werden:
 

@@ -115,7 +115,7 @@ a {
 
 .deck__track {
   display: flex;
-  width: 1000vw;
+  width: 900vw;
   height: 100%;
   transform: translate3d(calc(var(--slide) * -100vw), 0, 0);
   transition: transform .82s var(--ease);
@@ -257,7 +257,11 @@ p {
 .start-button:focus-visible,
 .booking-button:focus-visible,
 .nav-button:focus-visible,
-.wallpaper-actions a:focus-visible {
+.gallery-button:focus-visible,
+.download-card__preview:focus-visible,
+.download-card__links a:focus-visible,
+.library-back:focus-visible,
+.library-footer a:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
 }
@@ -870,13 +874,9 @@ p {
   line-height: 1.55;
 }
 
-.wallpaper-copy .download-note {
-  color: var(--gold-light);
-  font-size: .75rem;
-}
-
 .gallery-button {
   display: inline-flex;
+  min-height: 2.75rem;
   margin-top: 1.35rem;
   padding: .78rem 1rem;
   border: 1px solid rgb(245 239 226 / .28);
@@ -928,33 +928,6 @@ p {
   transform: translateY(-1vh) rotate(1deg);
 }
 
-.slide--more-wallpapers {
-  grid-template-columns: .72fr repeat(3, .68fr);
-  gap: clamp(.8rem, 1.7vw, 1.7rem);
-  padding-inline: 4.5vw;
-}
-
-.slide--more-wallpapers .wallpaper-copy h2 {
-  font-size: clamp(2.7rem, 5.3vw, 5.6rem);
-}
-
-.wallpaper--mini {
-  height: min(66vh, 42rem);
-  border-radius: 1.8rem;
-}
-
-.wallpaper--tilt-left {
-  transform: rotate(-1.4deg);
-}
-
-.wallpaper--tilt-right {
-  transform: translateY(-1vh) rotate(1.2deg);
-}
-
-.wallpaper--tilt-soft {
-  transform: translateY(1vh) rotate(-.5deg);
-}
-
 .wallpaper-actions {
   position: absolute;
   inset: auto 0 0;
@@ -973,19 +946,14 @@ p {
   font-size: .84rem;
 }
 
-.wallpaper-actions a {
-  padding: .52rem .72rem;
-  border: 1px solid rgb(245 239 226 / .32);
-  border-radius: 999px;
-  font-size: .68rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition: color .2s ease, background .2s ease;
+.wallpaper-actions--label {
+  padding-block: 2.4rem 1.3rem;
 }
 
-.wallpaper-actions a:hover {
-  color: var(--forest);
-  background: var(--gold-light);
+.wallpaper-actions--label strong {
+  margin-bottom: 0;
+  font-size: clamp(.78rem, 1.1vw, 1rem);
+  letter-spacing: .03em;
 }
 
 .deck-nav {
@@ -1445,10 +1413,6 @@ p {
     font-size: .84rem;
   }
 
-  .wallpaper-copy .download-note {
-    display: none;
-  }
-
   .wallpaper--phone,
   .wallpaper--desktop {
     height: min(48vh, 28rem);
@@ -1470,59 +1434,10 @@ p {
     font-size: .65rem;
   }
 
-  .wallpaper-actions a {
-    padding: .38rem .52rem;
-    font-size: .57rem;
-  }
-
-  .slide--more-wallpapers {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: auto 1fr;
-    gap: .55rem;
-    padding: 4vh 4vw 14vh;
-  }
-
-  .slide--more-wallpapers .wallpaper-copy {
-    grid-column: 1 / -1;
-  }
-
-  .slide--more-wallpapers .wallpaper-copy h2 {
-    font-size: clamp(2.4rem, 10.5vw, 3.8rem);
-  }
-
-  .slide--more-wallpapers .wallpaper-copy > p:not(.eyebrow) {
-    max-width: 30rem;
-    margin-top: .55rem;
-    font-size: .76rem;
-    line-height: 1.35;
-  }
-
   .gallery-button {
     margin-top: .75rem;
     padding: .62rem .78rem;
     font-size: .58rem;
-  }
-
-  .wallpaper--mini {
-    height: min(49vh, 25rem);
-    border-radius: 1rem;
-    transform: none;
-  }
-
-  .wallpaper--mini .wallpaper-actions {
-    justify-content: center;
-    padding: .55rem .35rem;
-    text-align: center;
-  }
-
-  .wallpaper--mini .wallpaper-actions strong {
-    margin-bottom: .1rem;
-    font-size: .56rem;
-  }
-
-  .wallpaper--mini .wallpaper-actions a {
-    padding: .36rem .48rem;
-    font-size: .54rem;
   }
 
   .deck-nav {
@@ -1616,6 +1531,20 @@ p {
   .birthday-copy blockquote {
     margin-top: .8rem;
   }
+
+  .slide--wallpapers {
+    gap: .5rem;
+    padding-top: 3vh;
+  }
+
+  .slide--wallpapers .wallpaper--phone,
+  .slide--wallpapers .wallpaper--desktop {
+    height: min(40vh, 18rem);
+  }
+
+  .slide--wallpapers .wallpaper-actions--label {
+    padding-block: 1.3rem .65rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1649,6 +1578,7 @@ body.wallpaper-page {
 
 .library-back {
   display: inline-flex;
+  min-height: 2.75rem;
   padding: .65rem 0;
   align-items: center;
   gap: .65rem;
@@ -1795,9 +1725,13 @@ body.wallpaper-page {
 }
 
 .download-card__links a {
-  padding: .52rem .7rem;
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: .62rem .8rem;
   border: 1px solid rgb(245 239 226 / .24);
   border-radius: 999px;
+  align-items: center;
+  justify-content: center;
   color: var(--paper);
   font-size: .62rem;
   font-weight: 800;
@@ -1874,8 +1808,12 @@ body.wallpaper-page {
   }
 
   .download-card__links a {
-    padding: .48rem .6rem;
-    font-size: .58rem;
+    padding: .55rem .6rem;
+    font-size: .62rem;
+  }
+
+  .download-card:not(.download-card--wide) .download-card__links a {
+    width: 100%;
   }
 
   .library-footer {

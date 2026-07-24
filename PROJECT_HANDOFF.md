@@ -33,7 +33,7 @@ zur Laufzeit nur HTML, CSS, JavaScript und die lokalen Bilddateien.
 
 ### Präsentation
 
-`site/index.html` enthält zehn Vollbildfolien:
+`site/index.html` enthält neun Vollbildfolien:
 
 1. Digitale Geburtstagskarte
 2. Offizielle Umweltschutz-Begründung
@@ -43,8 +43,7 @@ zur Laufzeit nur HTML, CSS, JavaScript und die lokalen Bilddateien.
 6. Spaß und eigenes Tempo
 7. Geldgeschenk als Spaßbudget mit externem Buchungslink
 8. Geburtstagsgruß von Jutta, Manny, Maxi und Benny
-9. Erste Wallpaper-Auswahl
-10. Weitere Wallpaper und Link zur vollständigen Galerie
+9. Konsolidierte Wallpaper-Übersicht mit Handy-/Laptop-Vorschau und Link zur vollständigen Galerie
 
 `site/app.js` verwaltet genau einen aktuellen Folienindex. `showSlide()`:
 
@@ -69,15 +68,18 @@ werden die aufwendigen Animationen praktisch deaktiviert.
 
 ### Wallpaper-Galerie
 
-`site/wallpapers.html` ist eine JavaScript-freie, responsive Downloadseite mit
+`site/wallpapers.html` ist die zentrale, JavaScript-freie und responsive Downloadseite mit
 15 Karten:
 
 - 10 neue Handy-Wallpaper
 - 4 ältere Handy-Wallpaper
 - 1 Laptop-Wallpaper mit 16:9- und 16:10-Download
+- Originalfoto-Varianten direkt bei „Waldmärchen“ und „Hürdenpause“
 
-Sie verlinkt zurück auf Folie 10. Auf dem Handy nutzt sie zwei Spalten, auf
-größeren Ansichten drei beziehungsweise fünf.
+Der Downloadbereich hat bewusst nur zwei Oberflächen: Folie 9 als kompakte Übersicht
+mit einem eindeutigen Galerie-CTA und diese Seite als einzigen Ort für alle einzelnen
+Downloads. Die Galerie verlinkt zurück auf Folie 9. Auf dem Handy nutzt sie zwei
+Spalten, auf größeren Ansichten drei beziehungsweise fünf.
 
 ## Dateistruktur und Quellen der Wahrheit
 
@@ -141,22 +143,26 @@ node verify_site.mjs
 Erwarteter Kernoutput:
 
 ```text
-OK: 10 Folien, 71 lokale Assets, Übergänge und Texte geprüft.
+OK: 9 Folien, 62 lokale Assets, Übergänge und Texte geprüft.
 ```
 
 Der Check sichert aktuell ab:
 
-- exakt 10 Folien,
+- exakt 9 Folien,
 - den Namen `Manny` und `Benny`,
 - das skeptische Mila-Bild,
 - Wipe-Animation und Reduced-Motion-Fallback,
-- 15 Galerie-Karten,
+- genau einen Galerie-CTA in der konsolidierten Wallpaper-Folie,
+- keine einzelnen Downloadlinks mehr innerhalb der Präsentation,
+- 15 Galerie-Karten und beide Originalfoto-Varianten,
+- Rücklinks der Galerie auf Folie 9,
 - Existenz aller in HTML referenzierten lokalen Assets.
 
-Die letzte Browser-QA wurde bei 1440 × 900 und 360 × 800 durchgeführt. Dabei
-gab es keine horizontalen Überläufe, keine kaputten Bilder und keine
-Browserkonsolenfehler. Alle 15 Galeriebilder und ein neuer Download wurden
-zusätzlich auf der Produktionsseite geladen.
+Die letzte Browser-QA wurde bei 1440 × 900, 768 × 1024, 390 × 844 und
+320 × 568 durchgeführt. Dabei gab es keine horizontalen Überläufe, keine kaputten
+Bilder und keine Browserkonsolen-, Page- oder Requestfehler. Der Galerie-CTA und die
+Downloadziele sind mindestens 44 Pixel hoch; auch die kurze 320-Pixel-Ansicht hält
+34 Pixel Abstand zwischen den Vorschaukarten und der unteren Navigation.
 
 ## Deployment
 
@@ -185,10 +191,11 @@ die bisherige produktive URL bleibt dadurch unangetastet.
 
 Nach dem Deploy müssen mindestens geprüft werden:
 
-- Produktions-Root lädt die zehn Folien.
+- Produktions-Root lädt die neun Folien.
 - Der Gruß enthält `Jutta, Manny, Maxi und Benny.`
-- `/wallpapers` zeigt 15 Karten.
-- Ein neu hinzugefügter JPEG-Download liefert HTTP 200 und `image/jpeg`.
+- `/wallpapers` zeigt 15 Karten und die Originalfoto-Varianten.
+- Der konsolidierte CTA auf Folie 9 öffnet die zentrale Galerie.
+- Ein JPEG-Download liefert HTTP 200 und `image/jpeg`.
 - Handyansicht hat keinen horizontalen Überlauf.
 
 `site/_headers` setzt `nosniff`, eine strikte Referrer-Policy, deaktiviert

@@ -12,15 +12,24 @@ const [html, gallery, css, js] = await Promise.all([
   readFile(join(site, "app.js"), "utf8"),
 ]);
 
-assert.equal((html.match(/<section class="slide /g) ?? []).length, 10);
+assert.equal((html.match(/<section class="slide /g) ?? []).length, 9);
 assert.match(html, /Jutta, Manny, Maxi und Benny\./);
 assert.match(html, /mila-road-skeptical\.webp/);
+assert.doesNotMatch(html, /id="slide-more-wallpapers"/);
+assert.equal((html.match(/href="wallpapers\.html"/g) ?? []).length, 1);
+const wallpaperSlide = html.match(/<section class="slide slide--wallpapers"[\s\S]*?<\/section>/)?.[0] ?? "";
+assert.match(wallpaperSlide, /Alle 15 Wallpaper öffnen/);
+assert.doesNotMatch(wallpaperSlide, /\sdownload(?:>|\s)/);
 assert.match(css, /@keyframes deck-wipe/);
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 assert.match(js, /deck\.classList\.add\("is-wiping"\)/);
+assert.match(js, /#slide-more-wallpapers.+#slide-wallpapers/);
 assert.equal((gallery.match(/<article class="download-card/g) ?? []).length, 15);
+assert.equal((gallery.match(/href="\.\/#slide-wallpapers"/g) ?? []).length, 2);
+assert.match(gallery, /downloads\/mila-foto-handy-1440x3200\.jpg/);
+assert.match(gallery, /downloads\/mila-foto-laptop-2560x1440\.jpg/);
 
 const assets = [...(html + gallery).matchAll(/(?:src|href)="((?:assets|downloads)\/[^"?]+)/g)];
 await Promise.all(assets.map(([, path]) => access(join(site, path))));
 
-console.log(`OK: 10 Folien, ${assets.length} lokale Assets, Übergänge und Texte geprüft.`);
+console.log(`OK: 9 Folien, ${assets.length} lokale Assets, Übergänge und Texte geprüft.`);

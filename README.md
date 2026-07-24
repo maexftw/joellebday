@@ -1,7 +1,7 @@
 # Joelles digitale Geburtstagskarte
 
-Frameworkfreie, statische Geburtstagskarte mit zehn Vollbildfolien und einer
-Wallpaper-Galerie für Joelle und Mila.
+Frameworkfreie, statische Geburtstagskarte mit neun Vollbildfolien und einer
+zentralen Wallpaper-Galerie für Joelle und Mila.
 
 - Produktion: <https://joelle-mila-geburtstag.pages.dev/>
 - Wallpaper: <https://joelle-mila-geburtstag.pages.dev/wallpapers>
@@ -19,7 +19,7 @@ node verify_site.mjs
 Erwartet:
 
 ```text
-OK: 10 Folien, 71 lokale Assets, Übergänge und Texte geprüft.
+OK: 9 Folien, 62 lokale Assets, Übergänge und Texte geprüft.
 ```
 
 ## Cloudflare Pages

@@ -102,12 +102,17 @@ document.addEventListener("touchend", (event) => {
   move(delta < 0 ? 1 : -1);
 }, { passive: true });
 
+function slideIndexFromHash(hash) {
+  const normalizedHash = hash === "#slide-more-wallpapers" ? "#slide-wallpapers" : hash;
+  return slides.findIndex((slide) => `#${slide.id}` === normalizedHash);
+}
+
 addEventListener("hashchange", () => {
-  const index = slides.findIndex((slide) => `#${slide.id}` === location.hash);
+  const index = slideIndexFromHash(location.hash);
   if (index >= 0 && index !== current) showSlide(index, false);
 });
 
-const initialSlide = slides.findIndex((slide) => `#${slide.id}` === location.hash);
+const initialSlide = slideIndexFromHash(location.hash);
 showSlide(initialSlide >= 0 ? initialSlide : 0, false, false);
 addEventListener("load", resetViewportScroll);
 

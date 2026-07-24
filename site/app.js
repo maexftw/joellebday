@@ -7,11 +7,39 @@ const progressBar = document.querySelector(".progress__bar i");
 const status = document.querySelector(".sr-status");
 const deck = document.querySelector(".deck");
 const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const motionToggle = document.querySelector("[data-motion-toggle]");
+const motionLabel = document.querySelector("[data-motion-label]");
+const motionStorageKey = "joellebday-motion";
 
 let current = 0;
 let touchStartX = null;
 let revealFrame = null;
 let revealReadyFrame = null;
+let forceMotion = false;
+
+try {
+  forceMotion = localStorage.getItem(motionStorageKey) === "full";
+} catch {
+  forceMotion = false;
+}
+
+function motionEnabled() {
+  return forceMotion || !prefersReducedMotion.matches;
+}
+
+function applyMotionState() {
+  const enabled = motionEnabled();
+  document.documentElement.classList.toggle("motion-ok", enabled);
+  document.documentElement.classList.toggle("motion-forced", forceMotion && prefersReducedMotion.matches);
+
+  if (motionToggle) {
+    motionToggle.hidden = !prefersReducedMotion.matches;
+    motionToggle.setAttribute("aria-pressed", String(forceMotion));
+  }
+  if (motionLabel) motionLabel.textContent = forceMotion ? "Animation ausschalten" : "Animation einschalten";
+
+  return enabled;
+}
 
 function resetViewportScroll() {
   const reset = () => {
@@ -37,7 +65,7 @@ function stageSlideReveal(slide, animate) {
 
   slides.forEach((item) => item.classList.remove("is-revealed"));
 
-  if (!animate || prefersReducedMotion.matches) {
+  if (!animate || !motionEnabled()) {
     slide.classList.add("is-revealed");
     return;
   }
@@ -55,7 +83,7 @@ function showSlide(index, announce = true, animate = true) {
 
   if (animate && !changed) return;
 
-  if (animate && changed && !prefersReducedMotion.matches) {
+  if (animate && changed && motionEnabled()) {
     deck.classList.remove("is-wiping");
     requestAnimationFrame(() => deck.classList.add("is-wiping"));
   }
@@ -142,13 +170,27 @@ addEventListener("hashchange", () => {
 });
 
 const initialSlide = slideIndexFromHash(location.hash);
-document.documentElement.classList.toggle("motion-ok", !prefersReducedMotion.matches);
+applyMotionState();
 showSlide(initialSlide >= 0 ? initialSlide : 0, false, false);
 addEventListener("load", resetViewportScroll);
 
 prefersReducedMotion.addEventListener("change", () => {
-  const motionEnabled = !prefersReducedMotion.matches;
-  document.documentElement.classList.toggle("motion-ok", motionEnabled);
+  const enabled = applyMotionState();
   deck.classList.remove("is-wiping");
-  stageSlideReveal(slides[current], motionEnabled);
+  stageSlideReveal(slides[current], enabled);
+});
+
+motionToggle?.addEventListener("click", () => {
+  forceMotion = !forceMotion;
+  try {
+    if (forceMotion) localStorage.setItem(motionStorageKey, "full");
+    else localStorage.removeItem(motionStorageKey);
+  } catch {
+    // The choice still applies for this tab when storage is unavailable.
+  }
+
+  const enabled = applyMotionState();
+  deck.classList.remove("is-wiping");
+  stageSlideReveal(slides[current], enabled);
+  status.textContent = forceMotion ? "Animationen sind eingeschaltet." : "Animationen folgen wieder der Systemeinstellung.";
 });

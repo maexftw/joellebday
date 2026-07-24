@@ -14,6 +14,9 @@ const [html, gallery, css, js] = await Promise.all([
 
 assert.equal((html.match(/<section class="slide /g) ?? []).length, 9);
 assert.match(html, /Jutta, Manny, Maxi und Benny\./);
+assert.doesNotMatch(html, /Einfach ihr zwei\./);
+assert.match(html, /Einfach alle vier\./);
+assert.match(html, /Jutta und Maxi kommen mit\./);
 assert.match(html, /mila-road-skeptical\.webp/);
 assert.doesNotMatch(html, /id="slide-more-wallpapers"/);
 assert.equal((html.match(/href="wallpapers\.html"/g) ?? []).length, 1);
@@ -22,9 +25,13 @@ assert.match(wallpaperSlide, /Alle 15 Wallpaper öffnen/);
 assert.doesNotMatch(wallpaperSlide, /\sdownload(?:>|\s)/);
 assert.match(css, /@keyframes deck-wipe/);
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+assert.match(css, /html:not\(\.motion-forced\) \*/);
 assert.match(css, /\.slide\.is-revealed \[data-reveal\]/);
+assert.match(html, /data-motion-toggle/);
 assert.match(js, /deck\.classList\.add\("is-wiping"\)/);
 assert.match(js, /function stageSlideReveal/);
+assert.match(js, /motionStorageKey = "joellebday-motion"/);
+assert.match(js, /classList\.toggle\("motion-forced"/);
 assert.match(js, /prefersReducedMotion\.addEventListener\("change"/);
 assert.match(js, /#slide-more-wallpapers.+#slide-wallpapers/);
 assert.ok((html.match(/data-reveal="[0-6]"/g) ?? []).length >= 40);

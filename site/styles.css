@@ -257,6 +257,7 @@ p {
 .start-button:focus-visible,
 .booking-button:focus-visible,
 .nav-button:focus-visible,
+.motion-toggle:focus-visible,
 .gallery-button:focus-visible,
 .download-card__preview:focus-visible,
 .download-card__links a:focus-visible,
@@ -1072,6 +1073,50 @@ p {
   text-transform: uppercase;
 }
 
+.motion-toggle {
+  position: fixed;
+  z-index: 30;
+  top: max(.8rem, env(safe-area-inset-top));
+  left: max(.8rem, 3vw);
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: .65rem .9rem;
+  border: 1px solid rgb(23 61 49 / .18);
+  border-radius: 999px;
+  align-items: center;
+  gap: .55rem;
+  color: var(--forest-deep);
+  background: rgb(245 239 226 / .94);
+  box-shadow: 0 .45rem 1.4rem rgb(12 42 34 / .18);
+  font: inherit;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: transform .22s var(--ease), background .22s ease;
+}
+
+.motion-toggle[hidden] {
+  display: none;
+}
+
+.motion-toggle:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.motion-toggle[aria-pressed="true"] {
+  color: var(--paper);
+  background: rgb(12 42 34 / .92);
+}
+
+.motion-toggle__icon {
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .sr-status {
   position: absolute;
   width: 1px;
@@ -1594,6 +1639,10 @@ p {
     margin-top: .9rem;
   }
 
+  .rules-stamp {
+    display: none;
+  }
+
   .gift-ticket {
     padding-block: 1.35rem;
   }
@@ -1634,9 +1683,9 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  html:not(.motion-forced) *,
+  html:not(.motion-forced) *::before,
+  html:not(.motion-forced) *::after {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;

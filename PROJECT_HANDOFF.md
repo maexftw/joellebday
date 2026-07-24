@@ -151,7 +151,10 @@ Der Check sichert aktuell ab:
 - exakt 9 Folien,
 - den Namen `Manny` und `Benny`,
 - das skeptische Mila-Bild,
-- Wipe-Animation, 53 gestaffelte Reveal-Marker und Reduced-Motion-Fallback,
+- Wipe-Animation, 53 gestaffelte Reveal-Marker, Reduced-Motion-Fallback und den
+  sichtbaren, gespeicherten Motion-Override für Geräte mit deaktivierten
+  Systemanimationen,
+- den Vierer-Text auf der Regel-Folie mit Jutta und Maxi als Begleitung,
 - genau einen Galerie-CTA in der konsolidierten Wallpaper-Folie,
 - keine einzelnen Downloadlinks mehr innerhalb der Präsentation,
 - 15 Galerie-Karten, ihre Gruppierung als 14 Handy- plus 1 Laptop-Motiv und beide Originalfoto-Varianten,
@@ -163,6 +166,13 @@ Die letzte Browser-QA wurde bei 1440 × 900, 768 × 1024, 390 × 844 und
 Bilder und keine Browserkonsolen-, Page- oder Requestfehler. Der Galerie-CTA und die
 Downloadziele sind mindestens 44 Pixel hoch; auch die kurze 320-Pixel-Ansicht hält
 34 Pixel Abstand zwischen den Vorschaukarten und der unteren Navigation.
+
+Wenn das Betriebssystem `prefers-reduced-motion: reduce` meldet, bleibt die Karte
+zunächst statisch und zeigt oben links `Animation einschalten`. Der bewusste Klick
+setzt den lokalen Override `joellebday-motion=full`, stellt Wipe und Reveals wieder
+her und kann über `Animation ausschalten` zurückgenommen werden. Auf 320 × 568 wird
+der rein dekorative Regel-Stempel ausgeblendet, damit er den Vierer-Text nicht
+überlagert.
 
 ## Deployment
 
@@ -189,10 +199,18 @@ bestehenden Direct-Upload-Produktion getreten. Cloudflare kann ein bestehendes
 Direct-Upload-Projekt nicht nachträglich auf native Git-Integration umstellen;
 die bisherige produktive URL bleibt dadurch unangetastet.
 
+**Release-Gate:** Ein Push auf `main` aktualisiert nur den Git-Spiegel
+`joellebday`. Die öffentliche Geburtstagsadresse ist erst veröffentlicht, wenn
+derselbe `site/`-Stand zusätzlich in `joelle-mila-geburtstag` direkt hochgeladen
+und anschließend auf beiden URLs geprüft wurde.
+
 Nach dem Deploy müssen mindestens geprüft werden:
 
 - Produktions-Root lädt die neun Folien.
 - Der Gruß enthält `Jutta, Manny, Maxi und Benny.`
+- Die Regel-Folie enthält `Einfach alle vier.` und `Jutta und Maxi kommen mit.`
+- Im Reduced-Motion-Modus ist der Override sichtbar und schaltet die Übergänge
+  nach einem Klick tatsächlich ein.
 - `/wallpapers` zeigt 15 Karten und die Originalfoto-Varianten.
 - Der konsolidierte CTA auf Folie 9 öffnet die zentrale Galerie.
 - Ein JPEG-Download liefert HTTP 200 und `image/jpeg`.
@@ -211,7 +229,7 @@ Geldbetrag. Die Website verlinkt ausschließlich auf die externe Buchungsseite.
 Barrierefreiheitsgrundlagen sind beabsichtigt und sollen erhalten bleiben:
 Skip-Link, semantische Buttons, Tastaturbedienung, Wischbedienung,
 ARIA-Beschriftungen, Live-Status, `inert` für inaktive Folien, Alt-Texte und
-Reduced-Motion-Unterstützung.
+Reduced-Motion-Unterstützung mit bewusstem, reversiblem Motion-Override.
 
 ## Graphify für die nächste KI
 

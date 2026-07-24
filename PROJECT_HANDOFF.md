@@ -168,11 +168,13 @@ Downloadziele sind mindestens 44 Pixel hoch; auch die kurze 320-Pixel-Ansicht h�
 34 Pixel Abstand zwischen den Vorschaukarten und der unteren Navigation.
 
 Wenn das Betriebssystem `prefers-reduced-motion: reduce` meldet, bleibt die Karte
-zunächst statisch und zeigt oben links `Animation einschalten`. Der bewusste Klick
-setzt den lokalen Override `joellebday-motion=full`, stellt Wipe und Reveals wieder
-her und kann über `Animation ausschalten` zurückgenommen werden. Auf 320 × 568 wird
-der rein dekorative Regel-Stempel ausgeblendet, damit er den Vierer-Text nicht
-überlagert.
+zunächst statisch und zeigt `Animation einschalten` links in der unteren Navigation.
+Unter 900 Pixeln wird der Schalter platzsparend als 44-Pixel-Stern dargestellt; sein
+vollständiger Zustand bleibt als zugängliche Beschriftung und Tooltip erhalten. Der
+bewusste Klick setzt den lokalen Override `joellebday-motion=full`, stellt Wipe und
+Reveals wieder her und kann über `Animation ausschalten` zurückgenommen werden. Auf
+320 × 568 wird zusätzlich der rein dekorative Regel-Stempel ausgeblendet und die
+Fortschrittsanzeige auf den vollständigen Folientitel verdichtet.
 
 ## Deployment
 

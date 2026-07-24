@@ -31,12 +31,16 @@ function applyMotionState() {
   const enabled = motionEnabled();
   document.documentElement.classList.toggle("motion-ok", enabled);
   document.documentElement.classList.toggle("motion-forced", forceMotion && prefersReducedMotion.matches);
+  document.documentElement.classList.toggle("motion-control-visible", prefersReducedMotion.matches);
 
   if (motionToggle) {
+    const label = forceMotion ? "Animation ausschalten" : "Animation einschalten";
     motionToggle.hidden = !prefersReducedMotion.matches;
+    motionToggle.setAttribute("aria-label", label);
+    motionToggle.setAttribute("title", label);
     motionToggle.setAttribute("aria-pressed", String(forceMotion));
+    if (motionLabel) motionLabel.textContent = label;
   }
-  if (motionLabel) motionLabel.textContent = forceMotion ? "Animation ausschalten" : "Animation einschalten";
 
   return enabled;
 }

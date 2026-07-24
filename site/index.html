@@ -16,8 +16,8 @@
     <meta property="og:image:height" content="630">
     <title>Für Joelle · Hüpfen. Lachen. Leckerli!</title>
     <link rel="icon" href="assets/icons/dog.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260724-6">
-    <script src="app.js?v=20260724-5" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260724-7">
+    <script src="app.js?v=20260724-6" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#slide-gift">Direkt zum Geschenk</a>
@@ -173,6 +173,10 @@
       </div>
 
       <nav class="deck-nav" aria-label="Präsentationssteuerung">
+        <button class="motion-toggle" type="button" data-motion-toggle aria-label="Animation einschalten" aria-pressed="false" hidden>
+          <span class="motion-toggle__icon" aria-hidden="true">✦</span>
+          <span data-motion-label>Animation einschalten</span>
+        </button>
         <button class="nav-button nav-button--prev" type="button" aria-label="Vorherige Folie" data-prev disabled>
           <span aria-hidden="true">←</span>
         </button>
@@ -190,10 +194,6 @@
       </nav>
 
       <p class="deck-hint">Wischen · Pfeiltasten · Buttons</p>
-      <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false" hidden>
-        <span class="motion-toggle__icon" aria-hidden="true">✦</span>
-        <span data-motion-label>Animation einschalten</span>
-      </button>
       <div class="sr-status" aria-live="polite" aria-atomic="true"></div>
     </main>
   </body>

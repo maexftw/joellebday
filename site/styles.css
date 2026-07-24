@@ -971,8 +971,14 @@ p {
   pointer-events: none;
 }
 
+.motion-control-visible .deck-nav {
+  grid-template-columns: auto 3rem minmax(10rem, 27rem) 3rem;
+  justify-content: center;
+}
+
 .nav-button,
-.progress {
+.progress,
+.motion-toggle {
   pointer-events: auto;
 }
 
@@ -1074,12 +1080,8 @@ p {
 }
 
 .motion-toggle {
-  position: fixed;
-  z-index: 30;
-  top: max(.8rem, env(safe-area-inset-top));
-  left: max(.8rem, 3vw);
   display: inline-flex;
-  min-height: 2.75rem;
+  min-height: 3rem;
   padding: .65rem .9rem;
   border: 1px solid rgb(23 61 49 / .18);
   border-radius: 999px;
@@ -1095,6 +1097,7 @@ p {
   cursor: pointer;
   backdrop-filter: blur(12px);
   transition: transform .22s var(--ease), background .22s ease;
+  white-space: nowrap;
 }
 
 .motion-toggle[hidden] {
@@ -1254,6 +1257,31 @@ p {
 .motion-ok .gift-ticket[data-reveal] {
   --reveal-y: 3.5rem;
   --reveal-scale: .955;
+}
+
+@media (max-width: 900px) {
+  .motion-control-visible .deck-nav {
+    grid-template-columns: 3rem 3rem minmax(0, 1fr) 3rem;
+    justify-content: stretch;
+  }
+
+  .motion-toggle {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .motion-toggle [data-motion-label] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1578,6 +1606,16 @@ p {
     gap: .55rem;
   }
 
+  .motion-control-visible .deck-nav {
+    grid-template-columns: 2.8rem 2.8rem minmax(0, 1fr) 2.8rem;
+  }
+
+  .motion-toggle {
+    width: 2.8rem;
+    height: 2.8rem;
+    min-height: 2.8rem;
+  }
+
   .nav-button {
     width: 2.8rem;
     height: 2.8rem;
@@ -1594,6 +1632,29 @@ p {
 
   .deck-hint {
     display: none;
+  }
+}
+
+@media (max-width: 340px) {
+  .motion-control-visible .progress {
+    padding: .5rem .5rem .45rem;
+  }
+
+  .motion-control-visible .progress__labels {
+    display: block;
+    font-size: .48rem;
+    line-height: 1.1;
+  }
+
+  .motion-control-visible .progress__number,
+  .motion-control-visible .progress__total {
+    display: none;
+  }
+
+  .motion-control-visible .progress__title {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
   }
 }
 

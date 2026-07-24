@@ -51,6 +51,7 @@ zur Laufzeit nur HTML, CSS, JavaScript und die lokalen Bilddateien.
 - setzt `.is-active`, `aria-hidden` und `inert`,
 - aktualisiert Fortschritt, Titel, Live-Status und URL-Hash,
 - startet den farbigen Wipe-Übergang,
+- baut Bilder und Texte danach in einer gestaffelten Reihenfolge auf,
 - setzt versehentliche Scrollpositionen zurück.
 
 Navigation funktioniert über Vor/Zurück-Buttons, Pfeiltasten,
@@ -71,8 +72,7 @@ werden die aufwendigen Animationen praktisch deaktiviert.
 `site/wallpapers.html` ist die zentrale, JavaScript-freie und responsive Downloadseite mit
 15 Karten:
 
-- 10 neue Handy-Wallpaper
-- 4 ältere Handy-Wallpaper
+- 14 gleichwertige Handy-Wallpaper in einem gemeinsamen Raster
 - 1 Laptop-Wallpaper mit 16:9- und 16:10-Download
 - Originalfoto-Varianten direkt bei „Waldmärchen“ und „Hürdenpause“
 
@@ -151,10 +151,10 @@ Der Check sichert aktuell ab:
 - exakt 9 Folien,
 - den Namen `Manny` und `Benny`,
 - das skeptische Mila-Bild,
-- Wipe-Animation und Reduced-Motion-Fallback,
+- Wipe-Animation, 53 gestaffelte Reveal-Marker und Reduced-Motion-Fallback,
 - genau einen Galerie-CTA in der konsolidierten Wallpaper-Folie,
 - keine einzelnen Downloadlinks mehr innerhalb der Präsentation,
-- 15 Galerie-Karten und beide Originalfoto-Varianten,
+- 15 Galerie-Karten, ihre Gruppierung als 14 Handy- plus 1 Laptop-Motiv und beide Originalfoto-Varianten,
 - Rücklinks der Galerie auf Folie 9,
 - Existenz aller in HTML referenzierten lokalen Assets.
 

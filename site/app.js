@@ -10,6 +10,8 @@ const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 let current = 0;
 let touchStartX = null;
+let revealFrame = null;
+let revealReadyFrame = null;
 
 function resetViewportScroll() {
   const reset = () => {
@@ -29,10 +31,31 @@ function clamp(index) {
   return Math.max(0, Math.min(slides.length - 1, index));
 }
 
+function stageSlideReveal(slide, animate) {
+  if (revealFrame !== null) cancelAnimationFrame(revealFrame);
+  if (revealReadyFrame !== null) cancelAnimationFrame(revealReadyFrame);
+
+  slides.forEach((item) => item.classList.remove("is-revealed"));
+
+  if (!animate || prefersReducedMotion.matches) {
+    slide.classList.add("is-revealed");
+    return;
+  }
+
+  revealFrame = requestAnimationFrame(() => {
+    revealReadyFrame = requestAnimationFrame(() => {
+      if (slides[current] === slide) slide.classList.add("is-revealed");
+    });
+  });
+}
+
 function showSlide(index, announce = true, animate = true) {
   const next = clamp(index);
+  const changed = next !== current;
 
-  if (animate && next !== current && !prefersReducedMotion.matches) {
+  if (animate && !changed) return;
+
+  if (animate && changed && !prefersReducedMotion.matches) {
     deck.classList.remove("is-wiping");
     requestAnimationFrame(() => deck.classList.add("is-wiping"));
   }
@@ -46,6 +69,8 @@ function showSlide(index, announce = true, animate = true) {
     slide.setAttribute("aria-hidden", String(!active));
     slide.inert = !active;
   });
+
+  stageSlideReveal(slides[current], animate);
 
   prevButtons.forEach((button) => {
     button.disabled = current === 0;
@@ -68,6 +93,10 @@ function showSlide(index, announce = true, animate = true) {
 function move(direction) {
   showSlide(current + direction);
 }
+
+deck.addEventListener("animationend", (event) => {
+  if (event.animationName === "deck-wipe") deck.classList.remove("is-wiping");
+});
 
 prevButtons.forEach((button) => button.addEventListener("click", () => move(-1)));
 nextButtons.forEach((button) => button.addEventListener("click", () => move(1)));
@@ -113,9 +142,13 @@ addEventListener("hashchange", () => {
 });
 
 const initialSlide = slideIndexFromHash(location.hash);
+document.documentElement.classList.toggle("motion-ok", !prefersReducedMotion.matches);
 showSlide(initialSlide >= 0 ? initialSlide : 0, false, false);
 addEventListener("load", resetViewportScroll);
 
-if (!prefersReducedMotion.matches) {
-  document.documentElement.classList.add("motion-ok");
-}
+prefersReducedMotion.addEventListener("change", () => {
+  const motionEnabled = !prefersReducedMotion.matches;
+  document.documentElement.classList.toggle("motion-ok", motionEnabled);
+  deck.classList.remove("is-wiping");
+  stageSlideReveal(slides[current], motionEnabled);
+});
